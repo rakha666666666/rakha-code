@@ -1,0 +1,33 @@
+ // Fungsi untuk berpindah halaman/slide
+        function nextPage(pageNumber) {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            
+            document.getElementById(`page-${pageNumber}`).classList.add('active');
+        }
+
+        function restartPage() {
+            nextPage(1);
+        }
+
+        // Efek animasi hati jatuh otomatis di latar belakang
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart-bg');
+            heart.innerHTML = '<i class="fa-solid fa-heart"></i>';
+            
+            // Posisi dan durasi acak
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
+            heart.style.fontSize = (Math.random() * 1.5 + 1) + 'rem';
+            
+            document.body.appendChild(heart);
+
+            // Hapus elemen setelah animasi selesai agar tidak membebani memori
+            setTimeout(() => {
+                heart.remove();
+            }, 6000);
+        }
+
+        // Munculkan hati baru setiap 300 milidetik
+        setInterval(createHeart, 300);

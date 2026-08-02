@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, My Special One! 💖</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Sacramento&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-pink-light: #ffe6f0;
+            --bg-pink-gradient: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+            --primary-pink: #ff477e;
+            --dark-pink: #d90429;
+            --white: #ffffff;
+            --text-color: #590d22;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-pink-gradient);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            color: var(--text-color);
+        }
+
+        /* Efek Latar Belakang Hati Jatuh */
+        .heart-bg {
+            position: absolute;
+            top: -10vh;
+            color: rgba(255, 71, 126, 0.4);
+            font-size: 1.5rem;
+            animation: fall linear infinite;
+            z-index: 1;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-10vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Container Utama */
+        .card-container {
+            position: relative;
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 0 15px 35px rgba(255, 71, 126, 0.2);
+            text-align: center;
+            max-width: 450px;
+            width: 90%;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .card-container:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Halaman / Slide */
+        .page {
+            display: none;
+            animation: fadeIn 0.8s ease-in-out forwards;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        /* Tipografi */
+        h1 {
+            font-family: 'Sacramento', cursive;
+            font-size: 3.5rem;
+            color: var(--primary-pink);
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--text-color);
+        }
+
+        p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            color: #72093b;
+        }
+
+        /* Tombol Navigasi */
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn {
+            background: var(--primary-pink);
+            color: var(--white);
+            border: none;
+            padding: 12px 24px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255, 71, 126, 0.4);
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn:hover {
+            background: var(--dark-pink);
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(217, 4, 41, 0.4);
+        }
+
+        .btn-secondary {
+            background: #ffa0b4;
+        }
+
+        /* Foto Profil / Ilustrasi untuk Setiap Halaman */
+        .image-box {
+            width: 130px;
+            height: 130px;
+            margin: 0 auto 20px auto;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid var(--primary-pink);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        .image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Lilin & Kue Icon */
+        .cake-icon {
+            font-size: 3.5rem;
+            color: var(--primary-pink);
+            margin-bottom: 15px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card-container">
+
+        <div id="page-1" class="page active">
+            <div class="image-box">
+                <img src="dia.jpeg" alt="kamu">
+            </div>
+            <h1>Halo, Sayang!</h1>
+            <p>di antara jutaan hari yang telah berlalu, hari ini adalah favoritku. Bukan karena tanggalnya, tetapi karena hari ini adalah hari lahirmu. selamat ulang tahun untuk orang yang selalu memenuhi pikiranku. semoga semesta selalu menjagamu, memberikan kebahagiaan tanpa henti, dan mengizinkanku untuk terus melihat senyum indahmu di setiap ulang tahun yang akan datang. ✨</p>
+            <div class="btn-container">
+                <button class="btn" onclick="nextPage(2)">Buka Kejutan <i class="fa-solid fa-heart"></i></button>
+            </div>
+        </div>
+
+        <div id="page-2" class="page">
+            <div class="image-box">
+                <img src="diaa.jpeg" alt="Foto 2">
+            </div>
+            <h1>Selamat Ulang Tahun!</h1>
+            <p>jika hari ini semua orang merayakan bertambahnya usiamu, izinkan aku merayakan satu hal yang lebih besar: rasa syukur karena pernah dipertemukan denganmu. semoga waktu selalu memihak pada kebahagiaanmu, dan semoga aku masih diberi kesempatan untuk menemani setiap ulang tahunmu di masa yang akan datang.✨</p>
+            <div class="btn-container">
+                <button class="btn btn-secondary" onclick="nextPage(1)"><i class="fa-solid fa-arrow-left"></i></button>
+                <button class="btn" onclick="nextPage(3)">Lanjut <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+        </div>
+
+        <div id="page-3" class="page">
+            <div class="image-box">
+                <img src="diaaa.jpeg" alt="Foto 3">
+            </div>
+            <h2>Harapan Untukmu</h2>
+            <p>aku tidak berharap hidupmu akan selalu dipenuhi langit yang cerah. namun, aku berharap setiap badai yang datang akan membuatmu semakin kuat, setiap kegagalan akan membawamu lebih dekat pada keberhasilan, dan setiap doa yang kau bisikkan di sepertiga malam akan dijawab pada waktu yang paling indah menurut tuhan. semoga bahagiamu tak pernah menemukan ujung, dan semoga aku masih menjadi seseorang yang dapat menyaksikan senyum itu di setiap perjalanan hidupmu. 💖</p>
+            <div class="btn-container">
+                <button class="btn btn-secondary" onclick="nextPage(2)"><i class="fa-solid fa-arrow-left"></i></button>
+                <button class="btn" onclick="nextPage(4)">Ada Pesan Lagi <i class="fa-solid fa-gift"></i></button>
+            </div>
+        </div>
+
+        <div id="page-4" class="page">
+            <div class="image-box">
+                <img src="lena.jpeg" alt="Foto 4">
+            </div>
+            <h1>Terima Kasih</h1>
+            <p>terima kasih telah menjadi bagian dari perjalanan hidupku. seperti hujan yang menyuburkan bumi tanpa meminta balasan, begitu pula kehadiranmu yang diam-diam menumbuhkan banyak kebahagiaan di dalam hatiku. mungkin kata "terima kasih" tak akan pernah cukup untuk menggambarkan betapa berharganya dirimu, tetapi biarlah doa-doaku kelak menjadi cara semesta membalas semua kebaikanmu. 🥰</p>
+            <div class="btn-container">
+                <button class="btn btn-secondary" onclick="nextPage(3)"><i class="fa-solid fa-arrow-left"></i></button>
+                <button class="btn" onclick="nextPage(5)">Terakhir <i class="fa-solid fa-star"></i></button>
+            </div>
+        </div>
+
+        <div id="page-5" class="page">
+            <div class="image-box">
+                <img src="lennaa.jpeg" alt="Foto 5">
+            </div>
+            <h1>I Love You!</h1>
+            <p><i>"I love you to the moon and back!"</i> 🌙✨<br>andai suatu hari nanti seluruh bintang kehilangan cahayanya, aku tetap berharap tuhan menjaga cahaya di dalam hatimu. sebab bagiku, senyummu selalu lebih terang daripada langit malam mana pun. dan jika hidup memberiku satu permintaan yang benar-benar akan dikabulkan, aku hanya ingin kau selalu dipeluk kebahagiaan, dengan atau tanpa kehadiranku. sekali lagi, selamat ulang tahun sayanggg i lovee uu babeee!!!</p>
+            <div class="btn-container">
+                <button class="btn" onclick="restartPage()">Ulangi Dari Awal <i class="fa-solid fa-rotate-right"></i></button>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Fungsi untuk berpindah halaman/slide
+        function nextPage(pageNumber) {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            
+            document.getElementById(`page-${pageNumber}`).classList.add('active');
+        }
+
+        function restartPage() {
+            nextPage(1);
+        }
+
+        // Efek animasi hati jatuh otomatis di latar belakang
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart-bg');
+            heart.innerHTML = '<i class="fa-solid fa-heart"></i>';
+            
+            // Posisi dan durasi acak
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
+            heart.style.fontSize = (Math.random() * 1.5 + 1) + 'rem';
+            
+            document.body.appendChild(heart);
+
+            // Hapus elemen setelah animasi selesai agar tidak membebani memori
+            setTimeout(() => {
+                heart.remove();
+            }, 6000);
+        }
+
+        // Munculkan hati baru setiap 300 milidetik
+        setInterval(createHeart, 300);
+    </script>
+</body>
+</html>
